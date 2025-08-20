@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>WeatherNow – Open-Meteo Demo</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Responsive weather app using Open-Meteo & Geocoding API (no key).">
+</head>
+<body>
+  <header class="topbar">
+    <h1 aria-label="Weather Now">Weather<span>Now</span></h1>
+    <form id="search-form" autocomplete="off" aria-label="Search city weather">
+      <input id="city-input" name="q" type="search" placeholder="Search city (e.g., Kolkata)" aria-label="City name" required />
+      <button id="search-btn" type="submit" title="Search weather">Search</button>
+    </form>
+  </header>
+
+  <main class="container">
+    <section class="quick-cities" aria-label="Quick cities">
+      <button class="chip" data-city="Kolkata">Kolkata</button>
+      <button class="chip" data-city="Delhi">Delhi</button>
+      <button class="chip" data-city="Mumbai">Mumbai</button>
+      <button class="chip" data-city="Bengaluru">Bengaluru</button>
+      <button class="chip" data-city="London">London</button>
+      <button class="chip" data-city="New York">New York</button>
+    </section>
+
+    <section class="status" aria-live="polite" id="status"></section>
+
+    <section id="current" class="card current" aria-label="Current weather">
+      <div class="header">
+        <h2 id="place">—</h2>
+        <small id="coords">—</small>
+      </div>
+      <div class="now">
+        <div class="temp" id="temp">—</div>
+        <div class="desc">
+          <div id="icon" class="icon" aria-hidden="true">⛅</div>
+          <div id="summary" class="summary">—</div>
+          <div class="meta">
+            <span id="humidity">—</span>
+            <span id="wind">—</span>
+            <span id="time">—</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="daily" class="daily-grid" aria-label="7-day forecast">
+      <!-- daily cards will be injected here -->
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>
+      Data by <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> ·
+      Geocoding by <a href="https://geocoding-api.open-meteo.com" target="_blank" rel="noopener">Open-Meteo Geocoding</a>
+    </p>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
